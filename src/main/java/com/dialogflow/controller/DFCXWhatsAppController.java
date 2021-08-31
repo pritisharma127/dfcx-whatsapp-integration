@@ -32,10 +32,10 @@ import com.twilio.rest.api.v2010.account.Message;
 public class DFCXWhatsAppController {
 
 	private static Logger logger = LoggerFactory.getLogger(DFCXWhatsAppController.class);
-	
-	public static final String ACCOUNT_SID = "AC84040e7fc899fc50296d5f922731a64e";//Arun account +1-385-336-0573
-	public static final String AUTH_TOKEN = "2d6cb82f7c2082036d41aeaa47a8f107"; //Arun Account +1-385-336-0573
-	private String resourceBaseUrl = "http://57b6-2401-4900-502b-523d-c845-c90d-b7a8-e87c.ngrok.io/";
+	//Change this according to your account details
+	public static final String ACCOUNT_SID = "AC8***7fc899fc50****22731a64e";//Twilio account 
+	public static final String AUTH_TOKEN = "2d6cb8****82036d****aeaa47a8f107"; //Twilio Account 
+	private String resourceBaseUrl = "http://57b6-*********502b-523d-c845-c90d-b7a8-e87c.ngrok.io/";
 
 	public Map<String, Long> userSessionInfo = new HashMap<>();
 	public Map<String, String> otpTrxnIdMap = new HashMap<>();
@@ -83,6 +83,7 @@ public class DFCXWhatsAppController {
 				// Setup session with the incoming message
 				userSessionInfo.put(userPhoneNumber, System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(8));
 				//First dialog
+				// this is twilio's default number for Whatsapp sandbox - +14155238886
 				Message.creator( 
 						new com.twilio.type.PhoneNumber(message.getFrom()), 
 						new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),  
