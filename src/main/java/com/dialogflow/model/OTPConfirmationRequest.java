@@ -2,8 +2,13 @@ package com.dialogflow.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-public class ConfirmOTPRequest {
+/**
+ * 
+ * @author pritisharma
+ * Model for CoWin API
+ *
+ */
+public class OTPConfirmationRequest {
 	
 	@JsonProperty
 	private String otp;

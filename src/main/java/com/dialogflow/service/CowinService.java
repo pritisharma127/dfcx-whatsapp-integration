@@ -20,12 +20,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.dialogflow.model.ConfirmOTPRequest;
+import com.dialogflow.model.OTPConfirmationRequest;
 
 /**
- * 
  * @author pritisharma
- * 
  * This is the service class where Aarogya Setu public APIs are called for generating OTP, validating OTP and vaccination certificate download.
  *
  */
@@ -80,11 +78,11 @@ public class CowinService {
 		list.add(MediaType.ALL);
 		headers.setAccept(list);
 		
-		ConfirmOTPRequest confirmOTPRequest = new ConfirmOTPRequest();
-		confirmOTPRequest.setOtp(encodedOTP);
-		confirmOTPRequest.setTxnId(trxnId);
+		OTPConfirmationRequest otpConfirmationRequest = new OTPConfirmationRequest();
+		otpConfirmationRequest.setOtp(encodedOTP);
+		otpConfirmationRequest.setTxnId(trxnId);
 		
-		HttpEntity<ConfirmOTPRequest> requestEntity = new HttpEntity<ConfirmOTPRequest>(confirmOTPRequest, headers);
+		HttpEntity<OTPConfirmationRequest> requestEntity = new HttpEntity<OTPConfirmationRequest>(otpConfirmationRequest, headers);
 		
 		logger.info("CowinService.validateOTP(), requestEntity = " + requestEntity.getBody());
 		

@@ -16,9 +16,7 @@ import com.google.cloud.dialogflow.cx.v3beta1.SessionsSettings;
 import com.google.cloud.dialogflow.cx.v3beta1.TextInput;
 
 /**
- * 
  * @author pritisharma
- * 
  * This is the integration with Google DialogFlow CX SDK. DFCX's detectIntent() method is used to find what user said/typed.
  *
  */
