@@ -22,6 +22,14 @@ import org.springframework.web.client.RestTemplate;
 
 import com.dialogflow.model.ConfirmOTPRequest;
 
+/**
+ * 
+ * @author pritisharma
+ * 
+ * This is the service class where Aarogya Setu public APIs are called for generating OTP, validating OTP and vaccination certificate download.
+ *
+ */
+
 @Service
 public class CowinService {
 	
@@ -38,7 +46,7 @@ public class CowinService {
 		return new RestTemplate();
 	}
 	
-	public String generateOTPWhatsApp(String mobile) {
+	public String generateOTP(String mobile) {
 		
 		logger.info("CowinService.generateOTPWhatsApp(), mobile = " + mobile);
 		mobile = "{\"mobile\": \"" + mobile + "\"}";
@@ -112,10 +120,11 @@ public class CowinService {
 		logger.info("CowinService.downloadCertificate(), dest file: " + dest.getAbsolutePath());
 		
 		FileUtils.copyFile(src,dest);
-		logger.info("CowinService.downloadCertificate(), file copied? " + Files.exists(Paths.get(System.getProperty("user.dir") + "/target/classes/static/Cert_" + benRefId + ".pdf")));
+		logger.info("CowinService.downloadCertificate(), is file copied to destination? --> " + Files.exists(Paths.get(System.getProperty("user.dir") + "/target/classes/static/Cert_" + benRefId + ".pdf")));
 		
+		// Delete file from src
 		FileUtils.forceDelete(src);
-		logger.info("CowinService.downloadCertificate(), src file deleted? " + Files.exists(Paths.get(System.getProperty("user.dir") + "/Cert_" + benRefId + ".pdf")));
+		logger.info("CowinService.downloadCertificate(), is source file deleted? --> " + Files.exists(Paths.get(System.getProperty("user.dir") + "/Cert_" + benRefId + ".pdf")));
 		
 		logger.info("files--" + files);
 		

@@ -1,5 +1,11 @@
 package com.dialogflow.controller;
 
+/**
+ * 
+ * @author pritisharma
+ * Created for Google DFCX SDK.
+ *
+ */
 public class UserParam {
 	public String Body;
 	public String NumSegments;

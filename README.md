@@ -1,17 +1,19 @@
 # dfcx-whatsapp-integration
-Integration of Google Dialogflow CX with WhatsApp through Twilio Platform
+CovMate - WhatsApp bot built by integrating Google Dialogflow CX with WhatsApp through Twilio Platform
+
+## Who is CovMate?
+CovMate is a WhatsApp bot who can help you to download vaccine certificate and frequently asked questions about CoWin.<br>
+CovMate can understand English and Hindi language at the moment. Of course, with the help of Google Dialogflow CX, it can understand and communicate in many other languages if implemented so.
+
+## How does CovMate Work?
+Behind the scene, it is a complex integration of WhatsApp with Google Dialogflow CX though Twilio platform using Springboot and Twilio SDK.<br>
+You might want to check out CovMate demo video <a href="https://drive.google.com/file/d/1tsmX6ANTBORPAroq1UyasTfYtD1OIw0D/view?usp=sharing">here</a>.
 
 ## How to setup and run CovMate WhatsApp Bot?
-1. Clone the dfcx-whatsapp-integration project in your favorite IDE.
-2. Set environment variable in run configuration of your IDE. 
-If you are running in Eclipse, right click on DialogflowWhatsAppApplication.java > Run As > Run Configurations... > "Environment" tab > New... > Set Name = GOOGLE\_APPLICATION\_CREDENTIALS > Set Value = Absolute path of "dfcx-whatsapp-service.json" > Save > Apply.
-<br>For IDEA, please refer <a href="https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html#add-environment-variables">this</a>.
-3. Make sure twilio.accountsid and twilio.authtoken are present in application.yml and are uncommented.
-4. Start SpringBoot application by right clicking on DialogflowWhatsAppApplication.java > Run As > Java Application. Application will start on port number 4567.
-5. http://localhost:4567 needs to be exposed as external URL for to be configured in Twilio platform. We use ngrok for this. Download ngrok <a href="https://ngrok.com/download">here</a>.
-6. In cmd or terminal run<br>
-./ngrok http 4567
-<br>This will give you url like http://57b6-2401-4900-502b-523d-c845-c90d-b7a8-e87c.ngrok.io.
-7. Login to <a href="https://console.twilio.com/">Twilio console</a>. Set the above URL for WhatsApp webhook in Twilio for redirection.
-8. In WhatsApp, send "join found-certainly" to Twilio number +1 (415) 523-8886 to connect with Twilio sandbox.
-9. Send Hi to start the conversation with CovMate WhatsApp Bot.
+Please check APP-SETUP-INSTRUCTIONS.md for project setup details.
+
+## Technical Details
+You can find technical specs (DesignDocument\_CovMate\_DFCX.pdf) in TechSpecs folder of this project.
+
+## Google Dialogflow CX Application
+I have exported the DFXC bot from DFCX console and put it (exported\_agent\_track2\_ps.blob) in the DialogflowCXBotExport folder of this project.

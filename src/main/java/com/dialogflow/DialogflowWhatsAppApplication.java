@@ -5,6 +5,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+/**
+ * 
+ * @author pritisharma
+ * 
+ * CovMate backend starting point
+ *
+ */
+
 @SpringBootApplication
 public class DialogflowWhatsAppApplication extends SpringBootServletInitializer {
 	

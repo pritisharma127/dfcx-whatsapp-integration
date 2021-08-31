@@ -1,9 +1,2 @@
-twilio:
-  accountsid: AC84040e7fc899fc50296d5f922731a64e
-  authtoken: 56fe2a4996eda59b99337d67a85443bc
-
 server:
   port: 4567
-  
-dfcx:
-  resource-base-url: http://57b6-2401-4900-502b-523d-c845-c90d-b7a8-e87c.ngrok.io/

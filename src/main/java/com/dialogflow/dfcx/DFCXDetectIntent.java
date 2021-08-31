@@ -15,15 +15,36 @@ import com.google.cloud.dialogflow.cx.v3beta1.SessionsClient;
 import com.google.cloud.dialogflow.cx.v3beta1.SessionsSettings;
 import com.google.cloud.dialogflow.cx.v3beta1.TextInput;
 
+/**
+ * 
+ * @author pritisharma
+ * 
+ * This is the integration with Google DialogFlow CX SDK. DFCX's detectIntent() method is used to find what user said/typed.
+ *
+ */
 public class DFCXDetectIntent {
 	
 	private static Logger logger = LoggerFactory.getLogger(DFCXDetectIntent.class);
 
 	// Add GOOGLE_APPLICATION_CREDENTIALS=<AbsolutePath>/dfcx-whatsapp-service.json in environment while running this
+	/**
+	 * For testing ONLY
+	 */
 	public static void main(String[] args) throws Exception{
 		detectIntentWhatsApp("civil-cascade-320214", "us-central1", "df9a41ec-53b3-4bef-b417-1759c96320cb", "txt123", "डाउनलोड", "hi-IN");
 	}
 
+	/**
+	 * @param projectId Google DFX project id from CX console
+	 * @param locationId Location selected while creating Google DFCX bot
+	 * @param agentId DFCX agent id
+	 * @param sessionId session id
+	 * @param text User input
+	 * @param languageCode en-US or hi-IN based on user selection
+	 * @return Array of String containing intent and response which will be displayed back to the user
+	 * @throws IOException
+	 * @throws ApiException
+	 */
 	@SuppressWarnings("deprecation")
 	public static String[] detectIntentWhatsApp(String projectId, String locationId, String agentId, String sessionId, String text,
 			String languageCode) throws IOException, ApiException {
@@ -40,6 +61,7 @@ public class DFCXDetectIntent {
 
 		// 1. Instantiates a client
 		try (SessionsClient sessionsClient = SessionsClient.create(sessionsSettings)) {
+			
 			// 2. Set the session name using the projectID (my-project-id), locationID (global), agentID (UUID), and sessionId (UUID).
 			SessionName session = SessionName.of(projectId, locationId, agentId, sessionId);
 

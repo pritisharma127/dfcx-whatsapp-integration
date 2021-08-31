@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,28 +23,25 @@ import com.google.common.hash.Hashing;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 
+/**
+ * @author pritisharma
+ * Controller class which communicates with Twilio as a webhook, integrates with DFCX SDK and sends back Twilio supported response
+ *
+ */
 @RestController
 public class DFCXWhatsAppController {
 
 	private static Logger logger = LoggerFactory.getLogger(DFCXWhatsAppController.class);
-
-	@Value("${twilio.accountsid}")
-	private String accountSid;
-
-	@Value("${twilio.authtoken}")
-	private String authToken;
 	
-	@Value("${dfcx.resource-base-url}")
-	private String resourceBaseUrl;
+	public static final String ACCOUNT_SID = "AC84040e7fc899fc50296d5f922731a64e";//Arun account +1-385-336-0573
+	public static final String AUTH_TOKEN = "2d6cb82f7c2082036d41aeaa47a8f107"; //Arun Account +1-385-336-0573
+	private String resourceBaseUrl = "http://57b6-2401-4900-502b-523d-c845-c90d-b7a8-e87c.ngrok.io/";
 
 	public Map<String, Long> userSessionInfo = new HashMap<>();
-
 	public Map<String, String> otpTrxnIdMap = new HashMap<>();
 	public Map<String, String> otpTokenMap = new HashMap<>();
 	public Map<String, String> latestUserIntentMap = new HashMap<>();
 	private String language = "en-US";
-	
-//	private String resourceBaseUrl = "http://57b6-2401-4900-502b-523d-c845-c90d-b7a8-e87c.ngrok.io/";
 
 	List<String> resetConversationList = new ArrayList<String>() {
 		private static final long serialVersionUID = 1L;
@@ -78,7 +74,7 @@ public class DFCXWhatsAppController {
 			logger.info("== START ==");
 			Long currentTime= System.currentTimeMillis();
 			String userPhoneNumber = message.getFrom().substring(12, message.getFrom().length());
-			Twilio.init(accountSid, authToken);
+			Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
 			String trxnId = "";
 			// Very first message
@@ -149,8 +145,10 @@ public class DFCXWhatsAppController {
 					// Call detectIntent() here
 					String[] recResult = DFCXDetectIntent.detectIntentWhatsApp(
 							"civil-cascade-320214", "us-central1", "df9a41ec-53b3-4bef-b417-1759c96320cb", "txt123", message.getBody().toLowerCase(), language);
-					String intent = recResult[1];
+					// Arrays 0th element is response to be show to the user
 					String displayMessage = recResult[0];
+					// Arrays 1st element is the intent recognized by Google DFCX which indicates what user wants
+					String intent = recResult[1];
 
 					if (currentTime < userSessionInfo.get(userPhoneNumber) && intent.contains("download")) { // Download intent detected + Send OTP
 						logger.info("2. Download intent detected, sending OTP now");
@@ -161,7 +159,7 @@ public class DFCXWhatsAppController {
 								displayMessage)
 						.create();
 						/*Call COWIN OTP API here*/
-						trxnId = cowinService.generateOTPWhatsApp(userPhoneNumber);
+						trxnId = cowinService.generateOTP(userPhoneNumber);
 						trxnId = trxnId.replace("{\"txnId\":\"", "");
 						trxnId = trxnId.replace("\"}", "");
 						otpTrxnIdMap.put(userPhoneNumber, trxnId);
@@ -223,7 +221,6 @@ public class DFCXWhatsAppController {
 						}
 					} else if((currentTime  < userSessionInfo.get(userPhoneNumber)) && (message.getBody().trim().length() == 14) 
 							&& latestUserIntentMap.get(userPhoneNumber).equals("otp")) {// Get BenId and download cert
-
 						logger.info("4. Beneficiary id received, downloading certificate now");
 						try {
 							long benId = Long.parseLong(message.getBody().trim());
@@ -279,7 +276,9 @@ public class DFCXWhatsAppController {
 									displayMessage)
 							.create();
 						}
-						if (currentTime < userSessionInfo.get(userPhoneNumber) && intent.contains("contactus")) {
+						if (currentTime < userSessionInfo.get(userPhoneNumber) && intent.contains("Default Welcome Intent")) {
+							// Do nothing, we already displayed language selection message
+						} else if (currentTime < userSessionInfo.get(userPhoneNumber) && intent.contains("contactus")) {
 							if("hi-IN".equalsIgnoreCase(language)) {
 								pdfMessage = " 👉 सुझाव और अधिक जानकारी के लिए कृपया उस 🏥 टीकाकरण केंद्र से भी संपर्क करें जहां आपने कोविड की खुराक ली थी।";
 							} else {
