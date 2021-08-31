@@ -29,11 +29,11 @@ Springboot logs for the app execution shown in demo video (/DemoVideo/CovMate_De
 2021-08-31 12:15:02.251  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - intent =download
 2021-08-31 12:15:02.252  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - End
 2021-08-31 12:15:02.252  INFO 5688 --- [nio-4567-exec-4] c.d.controller.DFCXWhatsAppController    : 2. Download intent detected, sending OTP now
-2021-08-31 12:15:02.709  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.service.CowinService      : CowinService.generateOTPWhatsApp(), mobile = 9834143672
-2021-08-31 12:15:02.711  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.service.CowinService      : CowinService.generateOTPWhatsApp(), requestEntity = {"mobile": "9834143672"}
-2021-08-31 12:15:03.886  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.service.CowinService      : CowinService.generateOTPWhatsApp(), response = {"txnId":"9f7a61bf-a1be-43c1-ad6f-a539fa2e5e58"}
+2021-08-31 12:15:02.709  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.service.CowinService      : CowinService.generateOTPWhatsApp(), mobile = 9****72
+2021-08-31 12:15:02.711  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.service.CowinService      : CowinService.generateOTPWhatsApp(), requestEntity = {"mobile": "9****72"}
+2021-08-31 12:15:03.886  INFO 5688 --- [nio-4567-exec-4] com.dialogflow.service.CowinService      : CowinService.generateOTPWhatsApp(), response = {"txnId":"9f7a61*****43c1-ad6f-a539fa2e5e58"}
 2021-08-31 12:15:18.314  INFO 5688 --- [nio-4567-exec-5] c.d.controller.DFCXWhatsAppController    : == START ==
-2021-08-31 12:15:18.314  INFO 5688 --- [nio-4567-exec-5] c.d.controller.DFCXWhatsAppController    : User input = 145003
+2021-08-31 12:15:18.314  INFO 5688 --- [nio-4567-exec-5] c.d.controller.DFCXWhatsAppController    : User input = 145**03
 2021-08-31 12:15:18.314  INFO 5688 --- [nio-4567-exec-5] c.d.controller.DFCXWhatsAppController    : Language selected for detectIntent API = en-US
 2021-08-31 12:15:18.315  INFO 5688 --- [nio-4567-exec-5] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - Start
 2021-08-31 12:15:20.240  INFO 5688 --- [nio-4567-exec-5] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - playPrompt = Can you say that again?
@@ -41,18 +41,18 @@ Springboot logs for the app execution shown in demo video (/DemoVideo/CovMate_De
 2021-08-31 12:15:20.241  INFO 5688 --- [nio-4567-exec-5] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - End
 2021-08-31 12:15:20.241  INFO 5688 --- [nio-4567-exec-5] c.d.controller.DFCXWhatsAppController    : 3. OTP received, asking for beneficiary id now
 2021-08-31 12:15:20.249  INFO 5688 --- [nio-4567-exec-5] com.dialogflow.service.CowinService      : CowinService.validateOTP(), requestEntity = com.dialogflow.model.ConfirmOTPRequest@55196770
-2021-08-31 12:15:20.456  INFO 5688 --- [nio-4567-exec-5] com.dialogflow.service.CowinService      : CowinService.validateOTP(), response = {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhYzEzY2Q2OC03ODM0LTQ4MjgtYjUyOC1hMDA2ZjBjNWM0M2EiLCJ1c2VyX3R5cGUiOiJCRU5FRklDSUFSWSIsInVzZXJfaWQiOiJhYzEzY2Q2OC03ODM0LTQ4MjgtYjUyOC1hMDA2ZjBjNWM0M2EiLCJtb2JpbGVfbnVtYmVyIjo5ODM0MTQzNjcyLCJiZW5lZmljaWFyeV9yZWZlcmVuY2VfaWQiOjg2NzM1Nzc2NzU0NTIwLCJ0eG5JZCI6IjlmN2E2MWJmLWExYmUtNDNjMS1hZDZmLWE1MzlmYTJlNWU1OCIsImlhdCI6MTYzMDM5MjMxNiwiZXhwIjoxNjMwMzkzMjE2fQ.GaMCPt5LG_bgSv5s09Tl-w_bJmKx93lvcdZZTRQD1-w"}
+2021-08-31 12:15:20.456  INFO 5688 --- [nio-4567-exec-5] com.dialogflow.service.CowinService      : CowinService.validateOTP(), response = {"token":"eyJhbGciOiJI*****************yJ1c2VyX25hbWUiOiJhYzEzY2Q2OC03ODM0LTQ4MjgtYjUyOC1hMDA2ZjBjNWM0M2EiLCJ1c2VyX3R5cGUiOiJCRU5FRklDSUFSWSIsInVzZXJfaWQiOiJhYzEzY2Q2OC03ODM0LTQ4MjgtYjUyOC1hMDA2ZjBjNWM0M2EiLCJtb2JpbGVfbnVtYmVyIjo5ODM0MTQzNjcyLCJiZW5lZmljaWFyeV9yZWZlcmVuY2VfaWQiOjg2NzM1Nzc2NzU0NTIwLCJ0eG5JZCI6IjlmN2E2MWJmLWExYmUtNDNjMS1hZDZmLWE1MzlmYTJlNWU1OCIsImlhdCI6MTYzMDM5MjMxNiwiZXhwIjoxNjMwMzkzMjE2fQ.GaMCPt5LG_bgSv5s09Tl-w_bJmKx93lvcdZZTRQD1-w"}
 2021-08-31 12:15:46.669  INFO 5688 --- [nio-4567-exec-6] c.d.controller.DFCXWhatsAppController    : == START ==
-2021-08-31 12:15:46.669  INFO 5688 --- [nio-4567-exec-6] c.d.controller.DFCXWhatsAppController    : User input = 86735776754520
+2021-08-31 12:15:46.669  INFO 5688 --- [nio-4567-exec-6] c.d.controller.DFCXWhatsAppController    : User input = 867*******6**520
 2021-08-31 12:15:46.669  INFO 5688 --- [nio-4567-exec-6] c.d.controller.DFCXWhatsAppController    : Language selected for detectIntent API = en-US
 2021-08-31 12:15:46.670  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - Start
 2021-08-31 12:15:48.417  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - playPrompt = I missed that, say that again?
 2021-08-31 12:15:48.418  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - intent =
 2021-08-31 12:15:48.418  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.dfcx.DFCXDetectIntent     : detectIntentWhatsApp() - End
 2021-08-31 12:15:48.419  INFO 5688 --- [nio-4567-exec-6] c.d.controller.DFCXWhatsAppController    : 4. Beneficiary id received, downloading certificate now
-2021-08-31 12:15:48.420  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), url == https://cdn-api.co-vin.in/api/v2/registration/certificate/public/download?beneficiary_reference_id=86735776754520
-2021-08-31 12:15:54.606  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), src file: /Users/pritisharma/git/dfcx-whatsapp-integration/Cert_86735776754520.pdf
-2021-08-31 12:15:54.606  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), dest file: /Users/pritisharma/git/dfcx-whatsapp-integration/target/classes/static/Cert_86735776754520.pdf
+2021-08-31 12:15:48.420  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), url == https://cdn-api.co-vin.in/api/v2/registration/certificate/public/download?beneficiary_reference_id=867*******6**520
+2021-08-31 12:15:54.606  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), src file: /Users/pritisharma/git/dfcx-whatsapp-integration/Cert_867*******6**520.pdf
+2021-08-31 12:15:54.606  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), dest file: /Users/pritisharma/git/dfcx-whatsapp-integration/target/classes/static/Cert_867*******6**520.pdf
 2021-08-31 12:15:54.617  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), is file copied to destination? --> true
 2021-08-31 12:15:54.618  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : CowinService.downloadCertificate(), is source file deleted? --> false
 2021-08-31 12:15:54.618  INFO 5688 --- [nio-4567-exec-6] com.dialogflow.service.CowinService      : files--null
