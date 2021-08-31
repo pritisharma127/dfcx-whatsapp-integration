@@ -7,7 +7,7 @@ CovMate can understand English and Hindi language at the moment. Of course, with
 
 ## How does CovMate Work?
 Behind the scene, it is a complex integration of WhatsApp with Google Dialogflow CX though Twilio platform using Springboot and Twilio SDK.<br>
-You might want to check out CovMate demo video <a href="https://drive.google.com/file/d/1tsmX6ANTBORPAroq1UyasTfYtD1OIw0D/view?usp=sharing">here</a>.
+You might want to check out CovMate demo video (CovMate_Demo.mp4) in the DemoVideo folder of this project or <a href="https://drive.google.com/file/d/1iXY1dbOTpcWOP82lQGQUhdioTshjLqYK/view?usp=sharing">here</a>.
 
 ## How to setup and run CovMate WhatsApp Bot?
 Please check APP-SETUP-INSTRUCTIONS.md for project setup details.
